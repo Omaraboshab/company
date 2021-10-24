@@ -1,0 +1,30 @@
+<h1 class="text-center text-info" style="text-transform: capitalize;">add employees from here</h1>
+<div class="container mx-auto">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card bg-dark">
+        <div class="card-body">
+          <div class="form-group">
+            <label class="text-info">User Name</label>
+            <input #user="ngModel" [(ngModel)]="object.name" required type="text" class="form-control" placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <label class="text-info">Your Position</label>
+            <input #position="ngModel" [(ngModel)]="object.position" required type="text" class="form-control" placeholder="Your Position">
+          </div>
+          <div *ngIf="user.touched && user.invalid || position.touched && position.invalid "  class="alert alert-danger">please enter valid data</div>
+          <div *ngIf=" user.valid && position.valid ">
+            <button (click)="save()" class="btn btn-info btn-block mx-auto w-50">Add Employee</button>
+
+          </div>
+          <div *ngIf=" user.invalid || position.invalid ">
+            <button class="btn btn-info btn-block mx-auto w-50" disabled>Add Employee</button>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
